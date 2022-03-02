@@ -6,18 +6,6 @@ const Albumlist = () => {
   return (
     <ScrollView>
       <View style={styles.cardContainerStyle}>
-        <View style={[styles.thumbnailContainerStyle, styles.cardSectionStyle]}>
-          <Image
-            style={styles.thumbnailStyle}
-            source={{
-              uri: albumData[0].thumbnail_image
-            }}
-          />
-          <View style={styles.headerContentStyle}>
-            <Text>{albumData[0].title}</Text>
-            <Text>{albumData[0].artist}</Text>
-          </View>
-        </View>
         <View style={styles.cardSectionStyle}>
           <Image
             style={styles.imageStyle}
@@ -25,21 +13,21 @@ const Albumlist = () => {
               uri: albumData[0].image
             }}
           />
-        </View>
-      </View>
-      <View style={styles.cardContainerStyle}>
-        <View style={[styles.thumbnailContainerStyle, styles.cardSectionStyle]}>
-          <Image
-            style={styles.thumbnailStyle}
-            source={{
-              uri: albumData[1].thumbnail_image
-            }}
-          />
-          <View style={styles.headerContentStyle}>
-            <Text>{albumData[1].title}</Text>
-            <Text>{albumData[1].artist}</Text>
+          <View style={styles.cardBgShadow}></View>
+          <View style={styles.thumbnailContainerStyle}>
+            <Image
+              style={styles.thumbnailStyle}
+              source={{
+                uri: albumData[0].thumbnail_image
+              }}
+            />
+            <Text style={styles.headerArtistStyle}>{albumData[0].artist}</Text>
+            <Text style={styles.headerTextStyle}>{albumData[0].title}</Text>
           </View>
         </View>
+      </View>
+
+      <View style={styles.cardContainerStyle}>
         <View style={styles.cardSectionStyle}>
           <Image
             style={styles.imageStyle}
@@ -47,21 +35,20 @@ const Albumlist = () => {
               uri: albumData[1].image
             }}
           />
+          <View style={styles.cardBgShadow}></View>
+          <View style={styles.thumbnailContainerStyle}>
+            <Image
+              style={styles.thumbnailStyle}
+              source={{
+                uri: albumData[1].thumbnail_image
+              }}
+            />
+            <Text style={styles.headerArtistStyle}>{albumData[1].artist}</Text>
+            <Text style={styles.headerTextStyle}>{albumData[1].title}</Text>
+          </View>
         </View>
       </View>
       <View style={styles.cardContainerStyle}>
-        <View style={[styles.thumbnailContainerStyle, styles.cardSectionStyle]}>
-          <Image
-            style={styles.thumbnailStyle}
-            source={{
-              uri: albumData[2].thumbnail_image
-            }}
-          />
-          <View style={styles.headerContentStyle}>
-            <Text>{albumData[2].title}</Text>
-            <Text>{albumData[2].artist}</Text>
-          </View>
-        </View>
         <View style={styles.cardSectionStyle}>
           <Image
             style={styles.imageStyle}
@@ -69,6 +56,59 @@ const Albumlist = () => {
               uri: albumData[2].image
             }}
           />
+          <View style={styles.cardBgShadow}></View>
+          <View style={styles.thumbnailContainerStyle}>
+            <Image
+              style={styles.thumbnailStyle}
+              source={{
+                uri: albumData[2].thumbnail_image
+              }}
+            />
+            <Text style={styles.headerArtistStyle}>{albumData[2].artist}</Text>
+            <Text style={styles.headerTextStyle}>{albumData[2].title}</Text>
+          </View>
+        </View>
+      </View>
+      <View style={styles.cardContainerStyle}>
+        <View style={styles.cardSectionStyle}>
+          <Image
+            style={styles.imageStyle}
+            source={{
+              uri: albumData[3].image
+            }}
+          />
+          <View style={styles.cardBgShadow}></View>
+          <View style={styles.thumbnailContainerStyle}>
+            <Image
+              style={styles.thumbnailStyle}
+              source={{
+                uri: albumData[3].thumbnail_image
+              }}
+            />
+            <Text style={styles.headerArtistStyle}>{albumData[3].artist}</Text>
+            <Text style={styles.headerTextStyle}>{albumData[3].title}</Text>
+          </View>
+        </View>
+      </View>
+      <View style={styles.cardContainerStyle}>
+        <View style={styles.cardSectionStyle}>
+          <Image
+            style={styles.imageStyle}
+            source={{
+              uri: albumData[4].image
+            }}
+          />
+          <View style={styles.cardBgShadow}></View>
+          <View style={styles.thumbnailContainerStyle}>
+            <Image
+              style={styles.thumbnailStyle}
+              source={{
+                uri: albumData[4].thumbnail_image
+              }}
+            />
+            <Text style={styles.headerArtistStyle}>{albumData[4].artist}</Text>
+            <Text style={styles.headerTextStyle}>{albumData[4].title}</Text>
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -76,19 +116,20 @@ const Albumlist = () => {
 };
 
 const styles = StyleSheet.create({
-  thumbnailContainerStyle: {
-    flexDirection: "row",
-    justifyContent: "flex-start"
-  },
   thumbnailStyle: {
-    height: 50,
-    width: 50,
-    margin: 5
+    borderRadius: 80,
+    height: 80,
+    width: 80,
+    marginBottom: 5
   },
-  headerContentStyle: {
-    flexDirection: "column",
-    justifyContent: "space-around",
-    paddingLeft: 10
+  headerArtistStyle: {
+    color: "#fff",
+    marginBottom: 10
+  },
+  headerTextStyle: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold"
   },
   cardContainerStyle: {
     borderWidth: 1,
@@ -110,8 +151,27 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1
   },
   imageStyle: {
-    height: 300,
+    position: "relative",
+    height: 390 ,
     width: null
+  },
+  cardBgShadow: {
+    position: "absolute",
+    backgroundColor: "#000",
+    zIndex: 9,
+    height: 390,
+    width: "100%",
+    opacity: 0.5,
+    left: 5,
+    top: 5
+  },
+  thumbnailContainerStyle: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 99
   }
 });
 
